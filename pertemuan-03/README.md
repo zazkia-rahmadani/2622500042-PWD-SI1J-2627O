@@ -7,7 +7,7 @@
 
 ## Implementasi Formulir
 
-- Elemen form yang digunakan: [<form>, <label>, <input>, <textarea>, <select>, <option>, <button>]
+- Elemen form yang digunakan: [form, label, input, textarea, select, option, button]
 - Tipe input yang digunakan: [text, email , password, number, date, radio, checkbox]
 - Atribut validasi yang digunakan: [for, id, name, action, method, placeholder, required, minlength, maxlength, min / max]
 
@@ -20,7 +20,7 @@
 ## CSS Dasar
 
 - Selector elemen: [tuliskan]
-- Selector class: [<form-group">. <input-form>]
+- Selector class: [form-group". input-form]
 - Selector ID: [#about, #about h2,#about h3, #about p, #about ol, #contact, #contact h2, .form-group,#contact label, .input-form, #contact button]
 - Properti CSS dasar yang digunakan: [color, background-color,font-family, font-size, font-weight, margin, padding, border, border-bottom ]
 
