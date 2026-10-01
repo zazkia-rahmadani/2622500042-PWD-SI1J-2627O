@@ -19,7 +19,7 @@
 
 ## CSS Dasar
 
-- Selector elemen: [tuliskan]
+- Selector elemen: [pada p3 tidak ada menggunakan selector elemen]
 - Selector class: [form-group". input-form]
 - Selector ID: [#about, #about h2,#about h3, #about p, #about ol, #contact, #contact h2, .form-group,#contact label, .input-form, #contact button]
 - Properti CSS dasar yang digunakan: [color, background-color,font-family, font-size, font-weight, margin, padding, border, border-bottom ]
