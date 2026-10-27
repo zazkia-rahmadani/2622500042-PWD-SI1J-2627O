@@ -6,10 +6,9 @@ $namaMahasiswa = "ZAZKIA RAHMADANI";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
 $semester = 2;
-$ipk = 4.0;
+$ipk = 3.90;
 $statusAktif = true;
 $catatanTambahan = null;
-
 const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
 const PROFIL_GITHUB = "zazkia-rahmadani";
 // Bagian 2: Operator
@@ -28,7 +27,6 @@ $keteranganSemester = "Semester akhir";
 }
 $namaProdi = ($programStudi == "SI") ? "Sistem Informasi" : (($programStudi == "TI") ? "Teknik
 Informatika" : "Lainnya");
-
 switch ($programStudi) {
 case "SI":
 $fokusProgramStudi = "Sistem informasi dan proses bisnis";
@@ -39,9 +37,6 @@ break;
 default:
 $fokusProgramStudi = "Belum ditentukan";
 }
-
-
-
 
 ?>
 
@@ -84,23 +79,30 @@ $fokusProgramStudi = "Belum ditentukan";
 
     <main>
         <section id="home">
-            <p>Halo, saya <strong><?php echo $namaMahasiswa; ?></strong>. Saya sedang mempelajari matakuliah
-<strong><?php print NAMA_MATA_KULIAH; ?></strong> pada tahun akademik <?php echo $tahunAkademik;
+            <h2>Tentang saya</h2>
+            <p>Halo, saya 
+                <strong> <?php echo $namaMahasiswa; ?>
+            </strong>.
+             Saya sedang mempelajari matakuliah
+        <strong><?php print NAMA_MATA_KULIAH; ?></strong> pada tahun akademik <?php echo $tahunAkademik;
 ?>.</p>
         
             <img src="img/foto-profil.jpeg" width="100" height="140" alt="foto-profil.jpeg">
         </section>
 
         <section id="about">
-            <h2>Tentang saya</h2>
             <article>
                 <h3>Profil Singkat</h3>
+                <p>Program Studi: <?php echo $namaProdi . " (" . $programStudi . ")"; ?></p>
+                <p>Fokus program studi: <?php echo $fokusProgramStudi; ?></p>
+                <p>Status mahasiswa: <?php echo $statusAktif ? "Aktif" : "Tidak aktif"; ?></p>
                 <p>Sisa semester hingga batas: <?php echo $sisaSemester; ?></p>
                 <p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
                 <p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
-                <p>Program Studi: <?php echo $namaProdi . " (" . $programStudi . ")"; ?></p>
-                <p>Status mahasiswa: <?php echo $statusAktif ? "Aktif" : "Tidak aktif"; ?></p>
-                <p>Fokus program studi: <?php echo $fokusProgramStudi; ?></p>
+                <p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
+                <p>Catatan tambahan: <?php echo $catatanTambahan === null ? "Belum ada" : $catatanTambahan;?></p>
+                <p>Saya Mahasiswa program studi Sistem informasi.</p>
+
                 <h3>Semester (Perulangan while):</h3>
                 <ol>
                 <?php
@@ -111,18 +113,33 @@ $fokusProgramStudi = "Belum ditentukan";
             }
             ?>
             </ol>
-            <p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
-                <p>Saya Mahasiswa program studi Sistem informasi.</p>
-                <h3>Target Belajar</h3>
-                <p>Catatan tambahan: <?php echo $catatanTambahan === null ? "Belum ada" : $catatanTambahan;
-                ?></p>
-                <nav>
-                    <ol>
-                        <li>Memahami struktur HTML5.</li>
-                        <li>Menyusun halaman web semantik.</li>
-                        <li>Memvalidasi dokumen HTML5.</1i>
-                    </ol>
-                </nav>
+                <h3>Target Belajar (Perulangan for)</h3>
+            <ol>
+            <?php
+            for ($i = 1; $i <= 5; $i++) {
+            echo "<li>Target belajar ke-" . $i . ": ";
+            switch ($i) {
+            case 1:
+            echo "Memahami sintaks dasar PHP.";
+            break;
+            case 2:
+            echo "Menggunakan variabel dan konstanta.";
+            break;
+            case 3:
+            echo "Menerapkan operator dan percabangan.";
+            break;
+            case 4:
+            echo "Menggunakan perulangan for dan while.";
+            break;
+            default:
+            echo "Belum dipetakan";
+            break;
+            }
+            echo "</li>";
+            }
+            ?>
+            </ol>
+            </p>
             </article>
         </section>
 
