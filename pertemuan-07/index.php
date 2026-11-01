@@ -382,7 +382,7 @@ const PROFIL_GITHUB = "zazkia-rahmadani";
     <footer>
         <p>&copy; <?= date("Y") ?> <?php echo $namaMahasiswa; ?> [<?= $nim ?>]</p>
     </footer>
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
 </body>
 
 </html>
