@@ -391,6 +391,7 @@
       }
     </style>
   </head>
+  
   <body>
     <header>
       <div class="nav">
@@ -460,7 +461,6 @@
               Rp38.000
               <button class="add" data-name="Strawberry Shortcake">+</button>
             </div>
-          </div>
         </article>
         <article class="card" data-cat="cold">
           <img
@@ -474,7 +474,6 @@
               Rp28.000
               <button class="add" data-name="Berry Panna Cotta">+</button>
             </div>
-          </div>
         </article>
         <article class="card" data-cat="pastry">
           <img
@@ -488,7 +487,6 @@
               Rp22.000
               <button class="add" data-name="Butter Croissant">+</button>
             </div>
-          </div>
         </article>
         <article class="card" data-cat="cold">
           <img
@@ -514,7 +512,6 @@
             <div class="bottom">
               Rp25.000 <button class="add" data-name="Fudgy Brownies">+</button>
             </div>
-          </div>
         </article>
         <article class="card" data-cat="cold">
           <img
@@ -610,8 +607,6 @@
             <strong style="font-size: 20px">Zazkia Rahmadani</strong>
             <div style="font: 12px Arial; margin-top: 7px">Pemilik MANISÉ</div>
           </div>
-        </div>
-        <div>
           <div
             style="
               display: grid;
@@ -625,9 +620,9 @@
             <strong>Nama</strong><span>: Zazkia Rahmadani</span>
             <strong>NIM</strong><span>: 2622500042</span>
             <strong>Program Studi</strong><span>: Sistem Informasi</span>
-            <strong>Kelas</strong><span>: SI1J</span> <strong>Alamat</strong
-            ><span>: Pangkal Pinang</span> <strong>Email</strong
-            ><span>: 2622500042@mahasiswa.atmaluhur.ac.id</span>
+            <strong>Kelas</strong><span>: SI1J</span> <strong>Alamat</strong>
+            <span>: Pangkal Pinang</span> <strong>Email</strong>
+            <span>: 2622500042@mahasiswa.atmaluhur.ac.id</span>
           </div>
           <div style="height: 1px; background: #f0e2dc; margin: 20px 0"></div>
           <h3
@@ -649,9 +644,8 @@
             ketelitian, dan kreativitas.
           </p>
         </div>
-      </div>
     </section>
-    \n
+
     <section class="quote">
       <div class="eyebrow">A sweet note</div>
       <h2>“Satu gigitan, sejuta cerita.”</h2>
@@ -729,5 +723,5 @@
       function render(){let d=JSON.parse(localStorage.getItem('maniseGuests')||'[]');document.getElementById('guestList').innerHTML=d.slice().reverse().map(g=><p class="msg"><b>${safe(g.name)}</b> · ${safe(g.topic)}<br>${safe(g.message)}</p>).join('')}
       document.getElementById('guestForm').addEventListener('submit',e=>{e.preventDefault();let g={name:name.value.trim(),email:email.value.trim(),topic:topic.value,message:message.value.trim()};let d=JSON.parse(localStorage.getItem('maniseGuests')||'[]');d.push(g);localStorage.setItem('maniseGuests',JSON.stringify(d));status.textContent='Terima kasih! Pesanmu berhasil disimpan di browser ini ♡';e.target.reset();render()});render();
     </script>
-  </body>
+</body>
 </html>
