@@ -82,6 +82,15 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'beranda';
         </footer>
 
     </div>
+    <!-- POPUP PENDAFTARAN BERHASIL -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h2>Pendaftaran Berhasil!</h2>
+            <p id="successText">Terima kasih sudah mendaftar di MANISE.</p>
+            <button type="button" id="closeModal">Tutup</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 

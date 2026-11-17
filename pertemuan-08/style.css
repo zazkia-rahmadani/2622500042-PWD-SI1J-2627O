@@ -393,3 +393,29 @@ tr:nth-child(even) {
     font-size: 11px;
   }
 }
+.hasil-sukses {
+  background: #fff;
+  border: 2px solid #cc7790;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.hasil-sukses h3 {
+  color: #8a4b62;
+}
+.hasil-sukses table {
+  margin: 12px auto;
+  text-align: left;
+}
+.hasil-sukses td {
+  padding: 4px 8px;
+}
+
+.hasil-error {
+  background: #ffe3e8;
+  border: 1px solid #cc7790;
+  color: #8a2b45;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+}

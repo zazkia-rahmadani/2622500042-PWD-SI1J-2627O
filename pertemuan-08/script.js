@@ -7,10 +7,9 @@ menuLinks.forEach(function (link) {
   }
 });
 
-// Efek pesan ketika website dibuka
 console.log("Welcome to MANISE Dessert Cake!");
 
-// Validasi formulir
+// Validasi formulir (sebelum dikirim ke server)
 const form = document.querySelector(".registration-form");
 
 if (form) {
@@ -20,7 +19,7 @@ if (form) {
 
     if (nama.length < 3) {
       alert("Nama minimal 3 karakter!");
-      event.preventDefault();
+      event.preventDefault(); // batalkan kirim
       return;
     }
 
@@ -28,5 +27,6 @@ if (form) {
       alert("Masukkan alamat email yang valid!");
       event.preventDefault();
     }
+    // kalau valid, form dikirim ke PHP
   });
 }
