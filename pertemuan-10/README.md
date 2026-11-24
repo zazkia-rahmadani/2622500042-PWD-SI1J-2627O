@@ -1,39 +1,171 @@
-Pada P10, yang saya lakukan adalah:
+# Pertemuan 10 - Analisis Kebutuhan Data dan Dasar MySQL Satu Tabel
 
-1. Menyalin artefak bahan pertemuan 09, sebagai baseline pertemuan 10, dan menguji tampilan `http://localhost/PWD/2627o/ti1a/2611500023-PWD-TI1A-2627O/pertemuan-10/` dimana hasilnya masih sama dengan artefak bahan pertemuan 09
-2. Menyiapkan direktori dan lingkungan pengembangan pertemuan 10, pengujian: Menjalankan laragon dan memastikan layanan Apache dan MySQL berjalan lancar
-3. Memeriksa kesiapan phpMyAdmin dan repositori pertemuan 10, pengujian: Memastikan phpMyAdmin dapat dibuka dan menampilkan antarmuka pengelolaan basis data MySQL
-4. Mengidentifikasi kebutuhan data formulir kontak P10, pengujian: Memeriksa kembali bagian formulir pada `pertemuan-10\index.php`, dan memastikan kedelapan data tersebut sesuai dengan atribut name dan jenis input yang tersedia pada kode
-5. Menentukan data formulir yang akan disimpan ke basis data, pengujian: Mencocokkan delapan data yang akan disimpan dengan elemen formulir pada `pertemuan-10\index.php`, dan memastikan tidak ada informasi profil yang dimasukkan sebagai bagian dari data formulir kontak
-6. Menentukan representasi data pilihan minat, pengujian: Memeriksa kembali kode formulir pada `pertemuan-10\index.php`, dan memastikan kedua checkbox menggunakan atribut `name="minat[]"` dan memiliki nilai HTML serta CSS
-7. Menentukan nama basis data dan tabel P10, pengujian: Memeriksa penulisan nama basis data dan tabel berdasarkan NIM masing-masing `(NIM saya sendiri: 2622500042)`, dan memastikan kedua nama mengikuti pola yang telah ditentukan `(nama basis data: db_pwd_2622500042 dan nama tabel: tbl_kontak_2622500042)`
-8. Merancang atribut dan tipe data tabel kontak, pengujian: Memeriksa kembali delapan atribut dan tipe data yang telah ditentukan, dan memastikan nama atribut sesuai dengan data formulir P9 dan ukuran tipe data sesuai dengan batasan input yang digunakan
-9. Menentukan primary key dan auto increment tabel kontak, pengujian: Memastikan atribut id telah ditambahkan pada rancangan tabel dengan tipe data INT, ditetapkan sebagai PRIMARY KEY dan menggunakan AUTO_INCREMENT
-10. Memeriksa rancangan akhir struktur tabel kontak, pengujian: Memeriksa kembali rancangan sembilan atribut yang telah dibuat, dan memastikan seluruh data formulir P9 telah terwakili, tipe data sesuai dengan karakteristik masing-masing atribut, dan hanya atribut id yang ditetapkan sebagai PRIMARY KEY dengan AUTO_INCREMENT
-11. Memasukkan data awal ke tabel kontak, pengujian: Memastikan data berhasil dimasukkan tanpa pesan kesalahan, dan memeriksa kembali nilai yang diisikan pada setiap atribut dan pastikan id terbentuk secara otomatis
-12. Mempelajari perintah SQL insert, pengujian: Memperhatikan hubungan antara perintah INSERT dan atribut tabel yang telah dibuat pada SQL Insert, dan memastikan data berhasil ditambahkan
-13. Memeriksa data awal pada tabel kontak, pengujian: Memastikan data yang ditampilkan pada tab Browse sesuai dengan data yang dimasukkan sebelumnnya (ada dua data yang dimasukkan pertama menggunakan `Insert` kedua menggunakan `SQL Insert`), dan memeriksa setiap atribut dan memastikan tidak terdapat data yang hilang atau berubah secara tidak disengaja
-14. Memeriksa dan memperbaiki data awal tabel kontak, pengujian: Memastikan seluruh data pada tabel sesuai dengan ketentuan atribut dan nilai yang digunakan pada formulir P9
-15. Menentukan pengaturan ekspor basis data, pengujian: Memastikan basis data `db_pwd_2622500042` telah dipilih dan pengaturan ekspor menggunakan metode Quick serta format SQL
-16. Mengekspor basis data ke berkas SQL, pengujian: Memastikan berkas `db_pwd_2622500042.sql` berhasil diunduh dan telah ditempatkan pada direktori `pertemuan-10`
-17. Memeriksa kelengkapan berkas ekspor SQL, pengujian: Memastikan berkas SQL memuat struktur tabel `db_pwd_2622500042` dan data awal yang telah dimasukkan, dan memeriksa kesesuaian nama tabel, sembilan atribut, serta nilai data yang diekspor
+| Keterangan  | Isi                                                           |
+| ----------- | ------------------------------------------------------------- |
+| Mata kuliah | Pemrograman Web Dasar (IS205)                                 |
+| Nama        | Zazkia Rahmadani                                              |
+| NIM         | 2622500042                                                    |
+| Kelas       | SI1J (Sistem Informasi)                                       |
+| Semester    | Gasal 2026/2027                                               |
+| Repositori  | https://github.com/zazkia-rahmadani/2622500042-PWD-SI1J-2627O |
 
-### Fitur, Pengembangan, dan Pengujian Pertemuan 10
+> Catatan: bagian bertanda **[ISI]** diisi setelah pengujian benar-benar dijalankan. Jangan mencatat hasil yang belum diperiksa sebagai berhasil.
 
-1. Menyalin seluruh artefak dari bahan pertemuan 09 untuk dijadikan dasar pengerjaan pertemuan 10. **Pengujian:** Membuka alamat `http://localhost/PWD/2627o/ti1a/2611500023-PWD-TI1A-2627O/pertemuan-10/` dan memastikan tampilan website masih sama seperti hasil pertemuan 09.
-2. Mempersiapkan folder serta lingkungan kerja untuk pengembangan pertemuan 10. **Pengujian:** Menjalankan Laragon dan mengecek apakah layanan Apache dan MySQL sudah aktif serta berjalan dengan baik.
-3. Mengecek kesiapan phpMyAdmin dan repositori pertemuan 10. **Pengujian:** Membuka phpMyAdmin untuk memastikan halaman pengelolaan database MySQL dapat diakses dengan normal.
-4. Menganalisis kebutuhan data yang terdapat pada formulir kontak P10. **Pengujian:** Meninjau kembali formulir pada file `pertemuan-10\index.php` dan memastikan delapan data yang dibutuhkan sudah sesuai dengan atribut `name` serta jenis input yang digunakan.
-5. Menetapkan data formulir yang akan dimasukkan ke dalam database. **Pengujian:** Membandingkan delapan data yang akan disimpan dengan elemen formulir pada `pertemuan-10\index.php` serta memastikan informasi profil tidak ikut dimasukkan ke dalam data kontak.
-6. Menentukan bentuk penyimpanan data pada pilihan minat. **Pengujian:** Mengecek kode formulir pada `pertemuan-10\index.php` dan memastikan kedua checkbox menggunakan atribut `name="minat[]"` dengan pilihan nilai HTML berupa `HTML` dan `CSS`.
-7. Menetapkan nama database dan tabel untuk P10 berdasarkan NIM. **Pengujian:** Memeriksa kesesuaian penamaan database dan tabel menggunakan NIM sendiri, yaitu `2611500023`, dengan nama database `db_pwd_2611500023` dan nama tabel `tbl_kontak_2611500023`.
-8. Menyusun atribut beserta tipe data yang diperlukan untuk tabel kontak. **Pengujian:** Mengecek delapan atribut yang sudah dirancang, memastikan penamaannya sesuai dengan data formulir P9 serta ukuran tipe datanya mencukupi batas input yang digunakan.
-9. Menambahkan primary key dan pengaturan auto increment pada tabel kontak. **Pengujian:** Memastikan kolom `id` sudah tersedia dengan tipe `INT`, berfungsi sebagai `PRIMARY KEY`, dan memiliki pengaturan `AUTO_INCREMENT`.
-10. Melakukan pemeriksaan terhadap rancangan akhir struktur tabel kontak. **Pengujian:** Meninjau kesembilan atribut yang telah dibuat untuk memastikan seluruh data formulir P9 sudah tercakup, tipe data sesuai dengan kebutuhan masing-masing atribut, serta hanya kolom `id` yang menjadi `PRIMARY KEY` dengan `AUTO_INCREMENT`.
-11. Menambahkan data pertama ke dalam tabel kontak. **Pengujian:** Memastikan proses pemasukan data berhasil tanpa menampilkan kesalahan, kemudian mengecek setiap nilai atribut dan memastikan nomor `id` dibuat secara otomatis.
-12. Memahami penggunaan perintah SQL `INSERT` untuk menambahkan data. **Pengujian:** Mengamati keterkaitan antara perintah `INSERT` dengan atribut yang tersedia pada tabel melalui fitur SQL Insert, lalu memastikan data berhasil disimpan.
-13. Mengecek hasil pemasukan data awal pada tabel kontak. **Pengujian:** Membuka tab Browse dan memastikan kedua data yang dimasukkan, yaitu melalui fitur Insert dan SQL Insert, sudah tampil sesuai dengan nilai yang sebelumnya diberikan. Selanjutnya, memeriksa setiap atribut agar tidak ada data yang hilang maupun mengalami perubahan.
-14. Meninjau kembali serta membenahi data awal yang tersimpan pada tabel kontak. **Pengujian:** Memastikan seluruh isi tabel sudah sesuai dengan ketentuan atribut dan nilai data yang digunakan pada formulir P9.
-15. Mengatur proses ekspor database yang telah dibuat. **Pengujian:** Memastikan database `db_pwd_2611500023` sudah dipilih dengan metode ekspor Quick dan format berkas SQL.
-16. Melakukan ekspor database menjadi file SQL. **Pengujian:** Memastikan file `db_pwd_2611500023.sql` berhasil diunduh dan disimpan ke dalam folder `pertemuan-10`.
-17. Memastikan file hasil ekspor SQL sudah lengkap. **Pengujian:** Memeriksa isi file untuk memastikan struktur database, tabel `tbl_kontak_2611500023`, sembilan atribut, serta seluruh data awal yang telah dimasukkan sudah tercantum dengan benar.
+## 1. Struktur Direktori
+
+```
+pertemuan-10\
+├── index.php
+├── fungsi.php
+├── script.js
+├── style.css
+├── README.md
+├── db_pwd_2622500042.sql
+└── img\
+    └── foto-profil.jpeg
+```
+
+Lokasi proyek: `C:\laragon\www\pwd\2627\ti1a\2622500042-PWD-SI1J-2627O\pertemuan-10`
+
+## 2. Cara Menjalankan
+
+1. Buka Laragon, klik **Start All**, pastikan Apache dan MySQL berjalan.
+2. Buka browser:
+   `http://localhost/pwd/2627/ti1a/2622500042-PWD-SI1J-2627O/pertemuan-10/index.php`
+3. Untuk mengelola basis data, buka `http://localhost/phpmyadmin/` (username `root`, password kosong).
+
+## 3. Kondisi Awal (Baseline dari P9)
+
+Berkas P9 disalin ke `pertemuan-10\` tanpa mengubah artefak P9. Kode dan fitur P9 dipertahankan.
+
+- Hasil pemeriksaan baseline: **[ISI: berhasil / gagal + catatan]**
+
+## 4. Persiapan Lingkungan
+
+| Pemeriksaan                                | Hasil     |
+| ------------------------------------------ | --------- |
+| Apache berjalan di Laragon                 | **[ISI]** |
+| MySQL berjalan di Laragon                  | **[ISI]** |
+| phpMyAdmin dapat dibuka dan login `root`   | **[ISI]** |
+| Aplikasi P10 dapat diakses via `localhost` | **[ISI]** |
+
+## 5. Analisis Kebutuhan Data Formulir Kontak
+
+Formulir Kontak P9 memiliki delapan data:
+
+| No  | Data                | Atribut `name` | Jenis input |
+| --- | ------------------- | -------------- | ----------- |
+| 1   | Nama lengkap        | `nama`         | Text        |
+| 2   | Email               | `email`        | Email       |
+| 3   | Semester            | `semester`     | Number      |
+| 4   | Tanggal kunjungan   | `tanggal`      | Date        |
+| 5   | Jenis pesan         | `jenis_pesan`  | Radio       |
+| 6   | Topik yang diminati | `minat[]`      | Checkbox    |
+| 7   | Program studi       | `prodi`        | Select      |
+| 8   | Pesan               | `pesan`        | Textarea    |
+
+- Data yang disimpan dibatasi pada delapan data formulir. Informasi profil (NIM, nama mahasiswa) tidak termasuk.
+- Field `minat` (checkbox `minat[]`) dapat berisi lebih dari satu pilihan. Pada P10 disimpan dalam satu kolom sebagai teks dipisahkan koma, contoh: `HTML, CSS`. Ini penyederhanaan untuk pembelajaran, bukan normalisasi yang ideal.
+- Hasil pencocokan dengan kode `index.php`: **[ISI]**
+
+## 6. Rancangan Struktur Tabel
+
+- Nama basis data: `db_pwd_2622500042`
+- Nama tabel: `tbl_kontak_2622500042`
+
+| No  | Atribut       | Tipe data    | Ketentuan                   |
+| --- | ------------- | ------------ | --------------------------- |
+| 1   | `id`          | INT          | PRIMARY KEY, AUTO_INCREMENT |
+| 2   | `nama`        | VARCHAR(50)  | -                           |
+| 3   | `email`       | VARCHAR(255) | -                           |
+| 4   | `semester`    | TINYINT      | -                           |
+| 5   | `tanggal`     | DATE         | -                           |
+| 6   | `jenis_pesan` | VARCHAR(20)  | -                           |
+| 7   | `minat`       | VARCHAR(50)  | -                           |
+| 8   | `prodi`       | VARCHAR(2)   | -                           |
+| 9   | `pesan`       | VARCHAR(300) | -                           |
+
+## 7. Pembuatan Basis Data dan Tabel (phpMyAdmin)
+
+Langkah: menu **Databases** → isi nama `db_pwd_2622500042` → **Create** → buat tabel `tbl_kontak_2622500042` dengan 9 kolom → **Save**.
+
+Perintah SQL yang setara:
+
+```sql
+CREATE DATABASE db_pwd_2622500042;
+
+USE db_pwd_2622500042;
+
+CREATE TABLE tbl_kontak_2622500042 (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(50),
+    email VARCHAR(255),
+    semester TINYINT,
+    tanggal DATE,
+    jenis_pesan VARCHAR(20),
+    minat VARCHAR(50),
+    prodi VARCHAR(2),
+    pesan VARCHAR(300)
+);
+```
+
+Pemeriksaan struktur (tab **Structure** atau `DESCRIBE tbl_kontak_2622500042;`):
+
+- Nama basis data dan tabel tanpa spasi, sesuai pola NIM: **[ISI]**
+- Sembilan atribut, tipe data, dan panjang sesuai rancangan: **[ISI]**
+- `id` memiliki indeks PRIMARY dan AUTO_INCREMENT: **[ISI]**
+
+## 8. Data Awal
+
+Data dimasukkan melalui fasilitas **Insert** (kolom `id` dikosongkan) atau perintah SQL `INSERT`.
+
+| id        | nama      | email     | semester  | tanggal   | jenis_pesan | minat     | prodi     | pesan     |
+| --------- | --------- | --------- | --------- | --------- | ----------- | --------- | --------- | --------- |
+| **[ISI]** | **[ISI]** | **[ISI]** | **[ISI]** | **[ISI]** | **[ISI]**   | **[ISI]** | **[ISI]** | **[ISI]** |
+
+- Pemeriksaan melalui tab **Browse** (id terbentuk otomatis, nilai `minat` tampil sebagai teks): **[ISI]**
+- Kesesuaian data dengan ketentuan formulir P9 (`prodi` SI/TI, `jenis_pesan` pertanyaan/saran, `minat` HTML/CSS): **[ISI]**
+
+## 9. Ekspor Basis Data
+
+- Export method: **Quick**
+- Format: **SQL**
+- Berkas hasil ekspor: `db_pwd_2622500042.sql`, dipindahkan ke direktori `pertemuan-10\`
+- Ekspor dilakukan pada 17 November 2026 (phpMyAdmin 5.2.0, MySQL 8.0.30), terlihat pada header berkas SQL.
+
+Pemeriksaan isi berkas SQL di VS Code:
+
+- Terdapat `CREATE TABLE` dengan 9 atribut: **[ISI]**
+- Terdapat `INSERT INTO` dengan data awal: **[ISI]**
+- Data pada berkas SQL sama dengan hasil Browse: **[ISI]**
+
+## 10. Masalah yang Ditemui dan Perbaikan
+
+| Masalah                                                   | Penyebab                                                                                                                                   | Perbaikan                                                      |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| Halaman `localhost/.../pertemuan-10/` tampil putih kosong | Kesalahan sintaks PHP pada `index.php`: baris `const PROFIL_GITHUB = ...` tidak diakhiri titik koma `;`, sehingga PHP gagal memproses file | Menambahkan `;` di akhir baris                                 |
+| Link GitHub pada bagian Kontak berpotensi salah           | Konstanta `PROFIL_GITHUB` berisi URL penuh, padahal link dibentuk dari `https://github.com/` + `PROFIL_GITHUB`                             | Isi konstanta diubah menjadi username saja: `zazkia-rahmadani` |
+| Nama berkas SQL tidak sesuai modul                        | Nama awal `_db_pwd__2622500042.sql`                                                                                                        | Diganti menjadi `db_pwd_2622500042.sql`                        |
+
+Hasil pengujian ulang setelah perbaikan (halaman tampil dan formulir berfungsi): **[ISI]**
+
+## 11. Riwayat Git
+
+Perubahan direkam bertahap menggunakan Git:
+
+```bash
+git add .
+git commit -m "pesan commit sesuai tahap"
+git push
+```
+
+Contoh pesan commit yang dipakai pada P10:
+
+- `memperbaiki kesalahan sintaks index.php dan mengganti nama berkas SQL pertemuan-10`
+- `mengekspor basis data ke berkas SQL`
+- `memeriksa kelengkapan berkas ekspor SQL`
+
+## 12. Catatan
+
+- Artefak P9 tidak diubah.
+- Integrasi PHP dengan MySQL belum dibahas pada P10 dan menjadi materi pertemuan berikutnya.
