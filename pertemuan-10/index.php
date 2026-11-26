@@ -40,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
 $nim = "2622500042";
-$namaMahasiswa = "ZAZKIA RAHMADANI"; // ganti jika nama Anda berbeda
+$namaMahasiswa = "Zazkia Rahmadani";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
-$semester = 1; // sesuaikan dengan semester Anda
+$semester = 1;
 $ipk = 3.75;
 $statusAktif = true;
 $catatanTambahan = null;
@@ -119,7 +119,7 @@ $teknologiWeb = ["HTML", "CSS", "JavaScript", "PHP", "MySQL"];
         <section id="home">
             <h2>Selamat Datang</h2>
             <p>Halo, saya <?= tebal($namaMahasiswa); ?>. Saya sedang mempelajari matakuliah <strong><?= bersihkan(NAMA_MATA_KULIAH); ?></strong> pada tahun akademik <?= bersihkan($tahunAkademik); ?>.</p>
-            <img src="img/foto-profil.jpg" alt="Foto profil Nama Mahasiswa" />
+            <img src="img/foto-profil.jpeg" alt="Foto profil Zazkia Rahmadani" />
         </section>
 
         <section id="about">
@@ -193,7 +193,7 @@ $teknologiWeb = ["HTML", "CSS", "JavaScript", "PHP", "MySQL"];
             <h2>Kontak</h2>
             <p>
                 Kunjungi
-                <a target="_blank" href="https://github.com/<?= bersihkan(PROFIL_GITHUB); ?>/2622500042-PWD-SI1J-2627O">profil GitHub saya</a>
+                <a target="_blank" href="https://github.com/<?= bersihkan(PROFIL_GITHUB); ?>/2622500042-PWD-SI1J-2627O">profil GitHub saya</a>.
             </p>
 
             <form id="contactForm" class="js-contact-form" data-validation="contact" action="index.php" method="post" novalidate>
